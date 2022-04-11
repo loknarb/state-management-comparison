@@ -1,8 +1,8 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import "./App.css";
-import Box from "./Box";
+// import Box from "./Box";
 import List from "./List";
-import { ListItem } from "./types";
+import { ListItem, Payload } from "./types";
 const MockData: ListItem[] = [
   {
     name: "Ocean Eyes",
@@ -25,11 +25,12 @@ function App() {
   const onListClickHandler = useCallback((item: ListItem) => {
     alert(item.name);
   }, []);
+  const [payload, setPayload] = useState<Payload | null>(null);
   return (
     <div className="App">
-      <header className="App-header">Hello</header>
-      <Body title="Body Title" />
-      <Box>Children Here</Box>
+      {/* <header className="App-header">Hello</header> */}
+      {/* <Body title="Body Title" /> */}
+      {/* <Box>Children Here</Box> */}
       <List items={MockData} onClick={onListClickHandler} />
     </div>
   );
