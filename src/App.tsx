@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
-// import Box from "./Box";
+import Box from "./Box";
 import List from "./List";
 import { ListItem, Payload } from "./types";
 const MockData: ListItem[] = [
@@ -27,7 +27,7 @@ function App() {
   }, []);
   const [payload, setPayload] = useState<Payload | null>(null);
   useEffect(() => {
-    fetch("/public/data.json")
+    fetch("/data.json")
       .then((response) => response.json())
       .then((data) => setPayload(data));
   }, []);
@@ -35,7 +35,7 @@ function App() {
     <div className="App">
       {/* <header className="App-header">Hello</header> */}
       {/* <Body title="Body Title" /> */}
-      {/* <Box>Children Here</Box> */}
+      <Box>{JSON.stringify(payload)}</Box>
       <List items={MockData} onClick={onListClickHandler} />
     </div>
   );
