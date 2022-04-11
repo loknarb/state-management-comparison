@@ -1,9 +1,17 @@
 import { ListItem } from "./types";
-const List: React.FunctionComponent<{ items: ListItem[] }> = ({ items }) => {
+const List: React.FunctionComponent<{ items: ListItem[]; onClick?: (item: ListItem) => void }> = ({
+  items,
+  onClick,
+}) => {
   return (
-    <ul>
+    <ul
+      style={{
+        listStyleType: "none",
+      }}>
       {items.map((item, index) => (
-        <li key={index}>{item.name}</li>
+        <li key={index} onClick={() => onClick?.(item)}>
+          {item.name}
+        </li>
       ))}
     </ul>
   );
