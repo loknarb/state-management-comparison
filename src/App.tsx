@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import "./App.css";
 import Box from "./Box";
 import List from "./List";
@@ -21,12 +22,15 @@ const Body = ({ title }: { title: string }) => {
 };
 
 function App() {
+  const onListClickHandler = useCallback((item: ListItem) => {
+    alert(item);
+  }, []);
   return (
     <div className="App">
       <header className="App-header">Hello</header>
       <Body title="Body Title" />
       <Box>Children Here</Box>
-      <List items={MockData}></List>
+      <List items={MockData} onClick={onListClickHandler}></List>
     </div>
   );
 }
