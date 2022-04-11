@@ -1,7 +1,8 @@
 import './App.css';
-const Body = () => {
+import Box from './Box';
+const Body = ({title}: {title: string}) => {
   return (
-    <h5>Body</h5>
+    <h5>{title}</h5>
   )
 }
 
@@ -11,7 +12,8 @@ function App() {
       <header className="App-header">
         Hello
       </header>
-      <Body/>
+      <Body title="Body Title"/>
+      <Box>Children Here</Box>
     </div>
   );
 }
