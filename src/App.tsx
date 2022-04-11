@@ -1,7 +1,8 @@
 import "./App.css";
 import Box from "./Box";
 import List from "./List";
-const MockData = [
+import { ListItem } from "./types";
+const MockData: ListItem[] = [
   {
     name: "Ocean Eyes",
   },
@@ -25,7 +26,7 @@ function App() {
       <header className="App-header">Hello</header>
       <Body title="Body Title" />
       <Box>Children Here</Box>
-      <List>{MockData}</List>
+      <List items={MockData}></List>
     </div>
   );
 }
