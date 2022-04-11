@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useReducer, useState } from "react";
 import "./App.css";
 import Box from "./Box";
 import List from "./List";
-import { ListItem, Payload } from "./types";
+import { ListItem, Payload, Todo } from "./types";
 const MockData: ListItem[] = [
   {
     name: "Ocean Eyes",
@@ -20,6 +20,9 @@ const MockData: ListItem[] = [
 // const Body = ({ title }: { title: string }) => {
 //   return <h5>{title}</h5>;
 // };
+const todoReducer= (todos: Todo[], action: ActionTypes) => {
+
+}
 
 function App() {
   const onListClickHandler = useCallback((item: ListItem) => {
@@ -31,6 +34,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => setPayload(data));
   }, []);
+  const [todos, dispatch] = useReducer(todoReducer. [])
   return (
     <div className="App">
       {/* <header className="App-header">Hello</header> */}
