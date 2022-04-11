@@ -23,14 +23,14 @@ const Body = ({ title }: { title: string }) => {
 
 function App() {
   const onListClickHandler = useCallback((item: ListItem) => {
-    alert(item);
+    alert(item.name);
   }, []);
   return (
     <div className="App">
       <header className="App-header">Hello</header>
       <Body title="Body Title" />
       <Box>Children Here</Box>
-      <List items={MockData} onClick={onListClickHandler}></List>
+      <List items={MockData} onClick={onListClickHandler} />
     </div>
   );
 }
