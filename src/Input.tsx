@@ -1,21 +1,23 @@
 import React, { useState } from "react";
-import { Todo } from "../src/types";
+import "./App.css";
 const Input: React.FunctionComponent<{ onAdd: (text: string) => void }> = ({ onAdd }) => {
-  const [inputValue, setInputValue] = useState<Todo["text"] | null>(null);
+  const [inputValue, setInputValue] = useState("");
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue: string = e.target.value;
     setInputValue(newValue);
   };
   const submitTodo = (e: React.FormEvent<HTMLElement>) => {
-    console.log(e);
+    e.preventDefault();
     if (inputValue?.trim() !== "" && inputValue !== null) {
       onAdd(inputValue);
+
+      setInputValue("");
     }
   };
   return (
     <form onSubmit={submitTodo}>
-      <input onChange={onChange} />
-      <button />
+      <input type="test" onChange={onChange} value={inputValue} />
+      <button className="btn-green">Submit</button>
     </form>
   );
 };
