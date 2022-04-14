@@ -44,6 +44,9 @@ function App() {
   const addTodoHandler = (text: string) => {
     dispatch({ type: "ADD", text });
   };
+  const removeTodoHandler = (id: Todo["id"]) => {
+    dispatch({ type: "DELETE", id });
+  };
   console.log(todos);
   return (
     <div className="App">
@@ -51,7 +54,7 @@ function App() {
       {/* <Body title="Body Title" /> */}
       <Input onAdd={addTodoHandler} />
       {/* <Box>{JSON.stringify(payload)}</Box> */}
-      <List items={todos} onClick={onListClickHandler} />
+      <List items={todos} onClick={onListClickHandler} onDelete={removeTodoHandler} />
     </div>
   );
 }
