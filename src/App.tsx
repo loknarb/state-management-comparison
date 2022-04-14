@@ -35,11 +35,11 @@ function App() {
     alert(item.text);
   }, []);
   // const [payload, setPayload] = useState<Payload | null>(null);
-  useEffect(() => {
-    fetch("/data.json")
-      .then((response) => response.json())
-      .then((data) => setPayload(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/data.json")
+  //     .then((response) => response.json())
+  //     .then((data) => setPayload(data));
+  // }, []);
   const [todos, dispatch] = useReducer(todoReducer, []);
   const addTodoHandler = (text: string) => {
     dispatch({ type: "ADD", text });
