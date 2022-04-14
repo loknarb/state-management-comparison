@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useReducer, useState } from "react";
 import "./App.css";
 import Box from "./Box";
+import Input from "./Input";
 import List from "./List";
-import { ListItem, Payload, Todo } from "./types";
+import { ListItem, Payload, Todo, ActionType } from "./types";
 const MockData: ListItem[] = [
   {
     name: "Ocean Eyes",
@@ -20,9 +21,14 @@ const MockData: ListItem[] = [
 // const Body = ({ title }: { title: string }) => {
 //   return <h5>{title}</h5>;
 // };
-const todoReducer= (todos: Todo[], action: ActionTypes) => {
-
-}
+const todoReducer = (state: Todo[], action: ActionType) => {
+  switch (action.type) {
+    case "ADD":
+      return [...state, { id: state.length, text: action.text, completed: false }];
+    case "DELETE":
+      return state.filter((todo) => todo.id !== action.id);
+  }
+};
 
 function App() {
   const onListClickHandler = useCallback((item: ListItem) => {
@@ -34,11 +40,15 @@ function App() {
       .then((response) => response.json())
       .then((data) => setPayload(data));
   }, []);
-  const [todos, dispatch] = useReducer(todoReducer. [])
+  const [todos, dispatch] = useReducer(todoReducer, []);
+  const addTodoHandler = (text: string) => {
+    dispatch({ type: "ADD", text });
+  };
   return (
     <div className="App">
       {/* <header className="App-header">Hello</header> */}
       {/* <Body title="Body Title" /> */}
+      <Input onAdd={addTodoHandler} />
       <Box>{JSON.stringify(payload)}</Box>
       <List items={MockData} onClick={onListClickHandler} />
     </div>
