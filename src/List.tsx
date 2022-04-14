@@ -1,5 +1,6 @@
-import { ListItem } from "./types";
-const List: React.FunctionComponent<{ items: ListItem[]; onClick?: (item: ListItem) => void }> = ({
+import { Todo } from "./types";
+import "./App.css";
+const List: React.FunctionComponent<{ items: Todo[]; onClick?: (item: Todo) => void }> = ({
   items,
   onClick,
 }) => {
@@ -10,7 +11,8 @@ const List: React.FunctionComponent<{ items: ListItem[]; onClick?: (item: ListIt
       }}>
       {items.map((item, index) => (
         <li key={index} onClick={() => onClick?.(item)}>
-          {item.name}
+          {item.text}
+          <button className="btn-delete">Delete</button>
         </li>
       ))}
     </ul>
