@@ -1,9 +1,10 @@
 import { Todo } from "./types";
 import "./App.css";
-const List: React.FunctionComponent<{ items: Todo[]; onClick?: (item: Todo) => void }> = ({
-  items,
-  onClick,
-}) => {
+const List: React.FunctionComponent<{
+  items: Todo[];
+  onClick?: (item: Todo) => void;
+  onDelete: (id: Todo["id"]) => void;
+}> = ({ items, onClick, onDelete }) => {
   return (
     <ul
       style={{
@@ -12,7 +13,9 @@ const List: React.FunctionComponent<{ items: Todo[]; onClick?: (item: Todo) => v
       {items.map((item, index) => (
         <li key={index} onClick={() => onClick?.(item)}>
           {item.text}
-          <button className="btn-delete">Delete</button>
+          <button className="btn-delete" onClick={onDelete}>
+            Delete
+          </button>
         </li>
       ))}
     </ul>
