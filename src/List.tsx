@@ -1,5 +1,6 @@
 import { Todo } from "./types";
 import "./App.css";
+import ListItem from "./ListItem";
 const List: React.FunctionComponent<{
   items: Todo[];
   onClick?: (item: Todo) => void;
@@ -11,12 +12,13 @@ const List: React.FunctionComponent<{
         listStyleType: "none",
       }}>
       {items.map((item, index) => (
-        <li key={index} onClick={() => onClick?.(item)}>
-          {item.text}
-          <button className="btn-delete" onClick={() => onDelete?.(index)}>
-            Delete
-          </button>
-        </li>
+        // <li key={index} onClick={() => onClick?.(item)}>
+        //   {item.text}
+        //   <button className="btn-delete" onClick={() => onDelete?.(index)}>
+        //     Delete
+        //   </button>
+        // </li>
+        <ListItem key={index} onDelete={() => onDelete?.(index)} text={item.text} />
       ))}
     </ul>
   );
