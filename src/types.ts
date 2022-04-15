@@ -7,8 +7,8 @@ export interface Payload {
 }
 
 export interface Todo {
-  id: number;
+  id: string;
   text: string;
   completed: boolean;
 }
-export type ActionType = { type: "ADD"; text: string } | { type: "DELETE"; id: number };
+export type ActionType = { type: "ADD"; text: Todo["text"] } | { type: "DELETE"; id: Todo["id"] };
