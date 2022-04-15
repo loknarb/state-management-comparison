@@ -13,7 +13,7 @@ const List: React.FunctionComponent<{
       {items.map((item, index) => (
         <li key={index} onClick={() => onClick?.(item)}>
           {item.text}
-          <button className="btn-delete" onClick={onDelete}>
+          <button className="btn-delete" onClick={() => onDelete?.(index)}>
             Delete
           </button>
         </li>
