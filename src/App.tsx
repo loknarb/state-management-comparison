@@ -30,6 +30,12 @@ const todoReducer = (state: Todo[], action: ActionType) => {
       return [...state, { id: uuid(), text: action.text, completed: false }];
     case "DELETE":
       return state.filter((todo) => todo.id !== action.id);
+    case "TOGGLE_CHECK":
+      const todoItem = state.filter((todo) => todo.id === action.id);
+      todoItem[0]["completed"] = !todoItem[0]["completed"];
+      // todoItem[0].completed = !todoItem[0].completed
+      console.log(todoItem);
+      return [...state, ...todoItem];
   }
 };
 
@@ -44,17 +50,20 @@ function App() {
   //     .then((data) => setPayload(data));
   // }, []);
   const [todos, dispatch] = useReducer(todoReducer, []);
-  const addTodoHandler = (text: string) => {
+  const addTodoHandler = (text: Todo["text"]) => {
     dispatch({ type: "ADD", text });
   };
   const removeTodoHandler = (id: Todo["id"]) => {
     dispatch({ type: "DELETE", id });
   };
+  const checkButtonHandler = (id: Todo["id"]) => {
+    dispatch({ type: "TOGGLE_CHECK", id });
+  };
   console.log(todos);
   return (
     <div className="App">
       <Input onAdd={addTodoHandler} />
-      <List items={todos} onDelete={removeTodoHandler} />
+      <List items={todos} onDelete={removeTodoHandler} onCheck={checkButtonHandler} />
       {/* <header className="App-header">Hello</header> */}
       {/* <Body title="Body Title" /> */}
       {/* <Box>{JSON.stringify(payload)}</Box> */}
