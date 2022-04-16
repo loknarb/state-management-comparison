@@ -3,9 +3,9 @@ import "./App.css";
 import ListItem from "./ListItem";
 const List: React.FunctionComponent<{
   items: Todo[];
-  onClick?: (item: Todo) => void;
+  onCheck: (id: Todo["id"]) => void;
   onDelete: (id: Todo["id"]) => void;
-}> = ({ items, onClick, onDelete }) => {
+}> = ({ items, onCheck, onDelete }) => {
   return (
     <ul
       style={{
@@ -18,7 +18,13 @@ const List: React.FunctionComponent<{
         //     Delete
         //   </button>
         // </li>
-        <ListItem key={item.id} onDelete={() => onDelete?.(item.id)} text={item.text} />
+        <ListItem
+          key={item.id}
+          onDelete={() => onDelete?.(item.id)}
+          onCheck={() => onCheck?.(item.id)}
+          text={item.text}
+          completed={item.completed}
+        />
       ))}
     </ul>
   );
