@@ -31,9 +31,10 @@ const todoReducer = (state: Todo[], action: ActionType) => {
     case "DELETE":
       return state.filter((todo) => todo.id !== action.id);
     case "TOGGLE_CHECK":
-    const copyState = state.slice()
-    const todoItem = state.filter((todo) => todo.id === action.id);
-      
+      // TODO problems in reducer need index and create brand new object
+      const copyState = state.slice();
+      const todoItem = state.filter((todo) => todo.id === action.id);
+
       todoItem[0]["completed"] = !todoItem[0]["completed"];
       // todoItem[0].completed = !todoItem[0].completed
       console.log(todoItem);
@@ -64,7 +65,11 @@ function App() {
   return (
     <div className="App">
       <Input onAdd={addTodoHandler} />
-      <List items={todos} onDelete={removeTodoHandler} onCheck={checkButtonHandler} />
+      <List
+        items={todos}
+        onDelete={removeTodoHandler}
+        onCheck={checkButtonHandler}
+      />
       {/* <header className="App-header">Hello</header> */}
       {/* <Body title="Body Title" /> */}
       {/* <Box>{JSON.stringify(payload)}</Box> */}
