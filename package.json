@@ -45,5 +45,6 @@
   "main": "index.js",
   "repository": "https://github.com/loknarb/typescript-react.git",
   "author": "loknarbLaptop <66973931+loknarb@users.noreply.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "yarn@3.2.0"
 }
