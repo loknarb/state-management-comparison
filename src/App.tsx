@@ -31,7 +31,9 @@ const todoReducer = (state: Todo[], action: ActionType) => {
     case "DELETE":
       return state.filter((todo) => todo.id !== action.id);
     case "TOGGLE_CHECK":
-      const todoItem = state.filter((todo) => todo.id === action.id);
+    const copyState = state.slice()
+    const todoItem = state.filter((todo) => todo.id === action.id);
+      
       todoItem[0]["completed"] = !todoItem[0]["completed"];
       // todoItem[0].completed = !todoItem[0].completed
       console.log(todoItem);
@@ -59,7 +61,6 @@ function App() {
   const checkButtonHandler = (id: Todo["id"]) => {
     dispatch({ type: "TOGGLE_CHECK", id });
   };
-  console.log(todos);
   return (
     <div className="App">
       <Input onAdd={addTodoHandler} />
