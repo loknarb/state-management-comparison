@@ -11,7 +11,7 @@ const ListItem: React.FunctionComponent<{
 }> = ({ text, onDelete, onCheck, id, completed }) => {
   return (
     <li>
-      {completed ? (
+      {!completed ? (
         <CheckBoxEmpty onCheck={() => onCheck(id)} id={id} />
       ) : (
         <CheckBoxFilled onCheck={() => onCheck(id)} id={id} />
