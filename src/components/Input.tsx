@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/App.css";
 import PrimaryButton from "./PrimaryButtons";
-const Input: React.FunctionComponent<{ onAdd: (text: string) => void }> = ({ onAdd }) => {
+import { TodosContext } from "./context/todoContext";
+const Input: React.FunctionComponent = () => {
+  const { addTodo } = useContext(TodosContext);
   const [inputValue, setInputValue] = useState("");
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue: string = e.target.value;
@@ -10,7 +12,7 @@ const Input: React.FunctionComponent<{ onAdd: (text: string) => void }> = ({ onA
   const submitTodo = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     if (inputValue?.trim() !== "" && inputValue !== null) {
-      onAdd(inputValue);
+      addTodo(inputValue);
 
       setInputValue("");
     }
