@@ -1,6 +1,6 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
-const Box: React.FunctionComponent = ({ children }) => {
+const Box = ({children} : PropsWithChildren<React.ReactNode>)=> {
   return <div>{children}</div>;
 };
 

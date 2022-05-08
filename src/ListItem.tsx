@@ -12,9 +12,9 @@ const ListItem: React.FunctionComponent<{
   return (
     <li>
       {!completed ? (
-        <CheckBoxEmpty id={id} onCheck={() => onCheck(id)} />
+        <CheckBoxEmpty onCheck={() => onCheck(id)} id={id} />
       ) : (
-        <CheckBoxFilled id={id} onCheck={() => onCheck(id)} />
+        <CheckBoxFilled onCheck={() => onCheck(id)} id={id} />
       )}
       {text}
       <button onClick={() => onDelete(id)} className="btn-delete">

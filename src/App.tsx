@@ -91,7 +91,6 @@ function App() {
   const checkButtonHandler = (id: Todo["id"]) => {
     dispatch({ type: "TOGGLE_CHECK", id });
   };
-  console.log(todos);
   return (
     <div className="App">
       <Input onAdd={addTodoHandler} />

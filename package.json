@@ -8,8 +8,8 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
-    "@types/react": "^17.0.20",
-    "@types/react-dom": "^17.0.9",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
     "@types/uuid": "^8.3.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -45,5 +45,6 @@
   "main": "index.js",
   "repository": "https://github.com/loknarb/typescript-react.git",
   "author": "loknarbLaptop <66973931+loknarb@users.noreply.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "yarn@3.2.0"
 }
