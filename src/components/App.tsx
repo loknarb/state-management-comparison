@@ -5,12 +5,12 @@ import Input from "./Input";
 import List from "./List";
 
 function App() {
-  const { todos, addTodo, removeTodo, checkTodo } = useTodos([]);
+  const { removeTodo, checkTodo } = useTodos([]);
   return (
     <div className="App">
       <TodosProvider initialTodo={[]}>
         <Input />
-        <List items={todos} onDelete={removeTodo} onCheck={checkTodo} />
+        <List onDelete={removeTodo} onCheck={checkTodo} />
       </TodosProvider>
     </div>
   );
