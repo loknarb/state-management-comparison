@@ -1,4 +1,4 @@
-import { Todo } from "./types";
+import { Todo } from "../types/types";
 const CheckBoxFilled: React.FunctionComponent<{
   onCheck: (id: Todo["id"]) => void;
   id: Todo["id"];

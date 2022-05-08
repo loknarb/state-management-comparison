@@ -1,5 +1,5 @@
-import { Todo } from "./types";
-import "./App.css";
+import { Todo } from "../types/types";
+import "../styles/App.css";
 import ListItem from "./ListItem";
 const List: React.FunctionComponent<{
   items: Todo[];

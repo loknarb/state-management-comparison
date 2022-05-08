@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "../styles/App.css";
 const Input: React.FunctionComponent<{ onAdd: (text: string) => void }> = ({ onAdd }) => {
   const [inputValue, setInputValue] = useState("");
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

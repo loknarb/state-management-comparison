@@ -1,5 +1,5 @@
-import { Todo } from "./types";
-import "./App.css";
+import { Todo } from "../types/types";
+import "../styles/App.css";
 import CheckBoxEmpty from "./CheckBoxEmpty";
 import CheckBoxFilled from "./CheckBoxFilled";
 const ListItem: React.FunctionComponent<{

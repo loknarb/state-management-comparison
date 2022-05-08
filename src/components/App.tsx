@@ -1,12 +1,12 @@
 // import { useCallback, useEffect, useReducer, useState } from "react";
 import { useReducer } from "react";
-import "./App.css";
+import "../styles/App.css";
 // import Box from "./Box";
 import Input from "./Input";
 import List from "./List";
 import { v4 as uuid } from "uuid";
 // import { ListItem, Payload, Todo, ActionType } from "./types";
-import { Todo, ActionType } from "./types";
+import { Todo, ActionType } from "../types/types";
 // const MockData: ListItem[] = [
 //   {
 //     name: "Ocean Eyes",
