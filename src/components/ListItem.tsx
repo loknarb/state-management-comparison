@@ -13,7 +13,7 @@ const ListItem: React.FunctionComponent<{
   // const { removeTodo } = useContext(TodosContext);
   const dispatch = useTypedDispatch();
   return (
-    <li>
+    <li style={{ display: "flex", alignItems: "center" }}>
       {!completed ? <CheckBoxEmpty id={id} /> : <CheckBoxFilled id={id} />}
       {text}
       <WarningButton onClick={() => dispatch(removeTodo(id))} className="btn-delete">
