@@ -21,9 +21,16 @@ const Input: React.FunctionComponent = () => {
     }
   };
   return (
-    <form onSubmit={submitTodo}>
-      <input type="test" onChange={onChange} value={inputValue} />
-      <PrimaryButton>Submit</PrimaryButton>
+    <form
+      style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: "0.5rem" }}
+      onSubmit={submitTodo}>
+      <input
+        style={{ height: "23px", margin: "0.25rem" }}
+        type="test"
+        onChange={onChange}
+        value={inputValue}
+      />
+      <PrimaryButton style={{ margin: "0.25rem" }}>Submit</PrimaryButton>
     </form>
   );
 };
