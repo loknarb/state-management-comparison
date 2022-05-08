@@ -16,14 +16,14 @@ const List = ({
       style={{
         listStyleType: "none",
       }}>
-      {todos.map((item) => (
+      {todos.map((todo) => (
         <ListItem
-          key={item.id}
-          id={item.id}
-          onDelete={() => onDelete?.(item.id)}
-          onCheck={() => onCheck?.(item.id)}
-          text={item.text}
-          completed={item.completed}
+          key={todo.id}
+          id={todo.id}
+          onDelete={() => onDelete?.(todo.id)}
+          onCheck={() => onCheck?.(todo.id)}
+          text={todo.text}
+          completed={todo.completed}
         />
       ))}
     </ul>
