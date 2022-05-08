@@ -12,6 +12,7 @@ const List: React.FunctionComponent<
       style={{
         ...style,
         listStyleType: "none",
+        paddingLeft: "0px",
       }}>
       {todos.map((todo) => (
         <ListItem key={todo.id} id={todo.id} text={todo.text} completed={todo.completed} />
