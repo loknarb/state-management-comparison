@@ -5,10 +5,14 @@ const CheckBoxEmpty: React.FunctionComponent<{
 }> = ({ onCheck, id }) => {
   return (
     <svg
+      style={{
+        marginLeft: "0.5rem",
+        marginRight: "0.5rem",
+      }}
       onClick={() => onCheck(id)}
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width="20"
+      height="20"
       fill="currentColor"
       className="bi bi-square"
       viewBox="0 0 16 16">

@@ -2,6 +2,7 @@ import { Todo } from "../types/types";
 import "../styles/App.css";
 import CheckBoxEmpty from "./CheckBoxEmpty";
 import CheckBoxFilled from "./CheckBoxFilled";
+import WarningButton from "./WarningButton";
 const ListItem: React.FunctionComponent<{
   id: Todo["id"];
   onDelete: (id: Todo["id"]) => void;
@@ -17,9 +18,9 @@ const ListItem: React.FunctionComponent<{
         <CheckBoxFilled onCheck={() => onCheck(id)} id={id} />
       )}
       {text}
-      <button onClick={() => onDelete(id)} className="btn-delete">
+      <WarningButton onClick={() => onDelete(id)} className="btn-delete">
         Delete
-      </button>
+      </WarningButton>
     </li>
   );
 };
