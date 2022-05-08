@@ -31,11 +31,43 @@ const todoReducer = (state: Todo[], action: ActionType) => {
     case "DELETE":
       return state.filter((todo) => todo.id !== action.id);
     case "TOGGLE_CHECK":
-      const todoItem = state.filter((todo) => todo.id === action.id);
-      todoItem[0]["completed"] = !todoItem[0]["completed"];
-      // todoItem[0].completed = !todoItem[0].completed
-      console.log(todoItem);
-      return [...state, ...todoItem];
+      let copyState = state.slice();
+      let updatedTodo: Todo;
+      const i = copyState.findIndex(({ id: copyStateId }) => copyStateId === action.id);
+      if (copyState[i].completed === true) {
+        updatedTodo = {
+          id: state[i].id,
+          text: state[i].text,
+          completed: false,
+        };
+      } else {
+        updatedTodo = {
+          id: state[i].id,
+          text: state[i].text,
+          completed: true,
+        };
+      }
+      copyState[i] = updatedTodo;
+      // console.log("prev", copyState[i]);
+      // if (copyState[i].completed === true) {
+      //   console.log("targetted");
+      //   copyState[i].completed = false;
+      // } else if (copyState[i].completed === false) {
+      //   console.log("targetted");
+      //   copyState[i].completed = true;
+      // }
+      // copyState[i]["completed"] = !copyState[i].completed;
+      // console.log(copyState[i]["completed"]);
+      // const prevState = copyState.filter((todo) => todo.id !== action.id);
+      // const invObj = !copyState[i].completed;
+      // copyState[i].completed = true;
+      // state[i] = copyState[i];
+
+      // console.log("curr", copyState[i]);
+      // console.log("try copyState", state);
+      // console.log("copyState in Reducer", [...copyState]);
+      // console.log(todoItem);
+      return [...copyState];
   }
 };
 

@@ -1,7 +1,11 @@
-const CheckBoxFilled: React.FunctionComponent<{ onCheck: void }> = ({ onCheck }) => {
+import { Todo } from "./types";
+const CheckBoxFilled: React.FunctionComponent<{
+  onCheck: (id: Todo["id"]) => void;
+  id: Todo["id"];
+}> = ({ onCheck, id }) => {
   return (
     <svg
-      onClick={() => onCheck}
+      onClick={() => onCheck(id)}
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"

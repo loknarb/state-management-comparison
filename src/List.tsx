@@ -20,6 +20,7 @@ const List: React.FunctionComponent<{
         // </li>
         <ListItem
           key={item.id}
+          id={item.id}
           onDelete={() => onDelete?.(item.id)}
           onCheck={() => onCheck?.(item.id)}
           text={item.text}
