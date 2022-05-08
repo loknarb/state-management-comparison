@@ -3,22 +3,19 @@ import "../styles/App.css";
 import CheckBoxEmpty from "./CheckBoxEmpty";
 import CheckBoxFilled from "./CheckBoxFilled";
 import WarningButton from "./WarningButton";
+import { useContext } from "react";
+import { TodosContext } from "./context/todoContext";
 const ListItem: React.FunctionComponent<{
   id: Todo["id"];
-  onDelete: (id: Todo["id"]) => void;
-  onCheck: (id: Todo["id"]) => void;
   text: Todo["text"];
   completed: Todo["completed"];
-}> = ({ text, onDelete, onCheck, id, completed }) => {
+}> = ({ text, id, completed }) => {
+  const { removeTodo } = useContext(TodosContext);
   return (
     <li>
-      {!completed ? (
-        <CheckBoxEmpty onCheck={() => onCheck(id)} id={id} />
-      ) : (
-        <CheckBoxFilled onCheck={() => onCheck(id)} id={id} />
-      )}
+      {!completed ? <CheckBoxEmpty id={id} /> : <CheckBoxFilled id={id} />}
       {text}
-      <WarningButton onClick={() => onDelete(id)} className="btn-delete">
+      <WarningButton onClick={() => removeTodo(id)} className="btn-delete">
         Delete
       </WarningButton>
     </li>
