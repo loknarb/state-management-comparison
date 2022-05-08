@@ -1,17 +1,18 @@
-import { useContext } from "react";
 import { Todo } from "../types/types";
-import { TodosContext } from "./context/todoContext";
+import { useTypedDispatch } from "./hooks/useReduxHook";
+import { checkTodo } from "../stores/todo-slice";
 const CheckBoxFilled: React.FunctionComponent<{
   id: Todo["id"];
 }> = ({ id }) => {
-  const { checkTodo } = useContext(TodosContext);
+  // const { checkTodo } = useContext(TodosContext);
+  const dispatch = useTypedDispatch();
   return (
     <svg
       style={{
         marginLeft: "0.5rem",
         marginRight: "0.5rem",
       }}
-      onClick={() => checkTodo(id)}
+      onClick={() => dispatch(checkTodo(id))}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
