@@ -1,11 +1,11 @@
 import "../styles/App.css";
 import ListItem from "./ListItem";
-import { useContext } from "react";
-import { TodosContext } from "./context/todoContext";
+import { useTypedSelector } from "./hooks/useReduxHook";
 const List: React.FunctionComponent<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>
 > = ({ style, ...rest }) => {
-  const { todos } = useContext(TodosContext);
+  // const { todos } = useContext(TodosContext);
+  const todos = useTypedSelector((state) => state.todo.todos);
   return (
     <ul
       {...rest}
