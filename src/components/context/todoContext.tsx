@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import { UseTodosFC } from "../../types/types";
 import { useTodos } from "../hooks/useTodos";
 
-const TodoContext = createContext<UseTodosFC>({
+export const TodosContext = createContext<UseTodosFC>({
   todos: [],
   addTodo: () => {},
   removeTodo: () => {},
@@ -14,5 +14,5 @@ export const TodosProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ initialTodo, children }) => {
   // const {addTodo, removeTodo, checkTodo, todos }= useTodos(initialTodo)
-  return <TodoContext.Provider value={useTodos(initialTodo)}>{children}</TodoContext.Provider>;
+  return <TodosContext.Provider value={useTodos(initialTodo)}>{children}</TodosContext.Provider>;
 };
