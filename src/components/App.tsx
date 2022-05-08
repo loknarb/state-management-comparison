@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <TodosProvider initialTodo={[]}>
-        <Input onAdd={addTodo} />
+        <Input />
         <List items={todos} onDelete={removeTodo} onCheck={checkTodo} />
       </TodosProvider>
     </div>
