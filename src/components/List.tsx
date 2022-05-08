@@ -1,21 +1,22 @@
 import { Todo } from "../types/types";
 import "../styles/App.css";
 import ListItem from "./ListItem";
+import { useContext } from "react";
+import { TodosContext } from "./context/todoContext";
 const List = ({
-  items,
   onCheck,
   onDelete,
 }: React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement> & {
-  items: Todo[];
   onCheck: (id: Todo["id"]) => void;
   onDelete: (id: Todo["id"]) => void;
 }) => {
+  const { todos } = useContext(TodosContext);
   return (
     <ul
       style={{
         listStyleType: "none",
       }}>
-      {items.map((item) => (
+      {todos.map((item) => (
         <ListItem
           key={item.id}
           id={item.id}
