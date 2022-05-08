@@ -1,15 +1,17 @@
+import { useContext } from "react";
 import { Todo } from "../types/types";
+import { TodosContext } from "./context/todoContext";
 const CheckBoxFilled: React.FunctionComponent<{
-  onCheck: (id: Todo["id"]) => void;
   id: Todo["id"];
-}> = ({ onCheck, id }) => {
+}> = ({ id }) => {
+  const { checkTodo } = useContext(TodosContext);
   return (
     <svg
       style={{
         marginLeft: "0.5rem",
         marginRight: "0.5rem",
       }}
-      onClick={() => onCheck(id)}
+      onClick={() => checkTodo(id)}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
