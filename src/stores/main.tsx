@@ -7,3 +7,5 @@ const main = configureStore({
 });
 
 export type RootState = ReturnType<typeof main.getState>;
+export type AppDispatch = typeof main.dispatch;
+export default main;

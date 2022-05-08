@@ -2,6 +2,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import "./styles/index.css";
 import { TodosProvider } from "./components/context/todoContext";
+import { Provider } from "react-redux";
+import main from "./stores/main";
 import App from "./components/App";
 import reportWebVitals from "./tests/reportWebVitals";
 
@@ -10,7 +12,9 @@ const root = createRoot(container!);
 root.render(
   <React.StrictMode>
     <TodosProvider initialTodo={[]}>
-      <App />
+      <Provider store={main}>
+        <App />
+      </Provider>
     </TodosProvider>
   </React.StrictMode>
 );
