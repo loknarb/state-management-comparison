@@ -1,23 +1,21 @@
 import { Todo } from "../types/types";
 import "../styles/App.css";
 import ListItem from "./ListItem";
-const List: React.FunctionComponent<{
+const List = ({
+  items,
+  onCheck,
+  onDelete,
+}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement> & {
   items: Todo[];
   onCheck: (id: Todo["id"]) => void;
   onDelete: (id: Todo["id"]) => void;
-}> = ({ items, onCheck, onDelete }) => {
+}) => {
   return (
     <ul
       style={{
         listStyleType: "none",
       }}>
       {items.map((item) => (
-        // <li key={index} onClick={() => onClick?.(item)}>
-        //   {item.text}
-        //   <button className="btn-delete" onClick={() => onDelete?.(index)}>
-        //     Delete
-        //   </button>
-        // </li>
         <ListItem
           key={item.id}
           id={item.id}
