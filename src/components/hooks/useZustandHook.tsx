@@ -35,3 +35,5 @@ const handleRemoveTodo = (todos: Todo[], id: Todo["id"]): Todo[] => {
 const handleAddTodo = (todos: Todo[], text: Todo["text"]): Todo[] => {
   return [...todos, { id: uuid(), text, completed: false }];
 };
+
+export default useTodos;

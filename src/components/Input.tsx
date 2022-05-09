@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "../styles/App.css";
+import useTodos from "./hooks/useZustandHook";
 import PrimaryButton from "./PrimaryButtons";
-import { useTypedDispatch } from "./hooks/useReduxHook";
-import { addTodo } from "../stores/todo-slice";
+// import { useTypedDispatch } from "./hooks/useReduxHook";
+// import { addTodo } from "../stores/todo-slice";
 const Input: React.FunctionComponent = () => {
-  const dispatch = useTypedDispatch();
+  const { addTodo } = useTodos((state) => state);
+  // const dispatch = useTypedDispatch();
   // const { addTodo } = useContext(TodosContext);
   const [inputValue, setInputValue] = useState("");
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,9 +16,10 @@ const Input: React.FunctionComponent = () => {
   const submitTodo = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     if (inputValue?.trim() !== "" && inputValue !== null) {
-      dispatch(addTodo(inputValue));
+      // dispatch(addTodo(inputValue));
       // addTodo(inputValue);
-
+      // * zustand
+      addTodo(inputValue);
       setInputValue("");
     }
   };
