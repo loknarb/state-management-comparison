@@ -1,5 +1,5 @@
 # React State Management - with Typescript
-
+![](https://camo.githubusercontent.com/b02f626771dbb992b753e6e4cfebde3d6fa35faa0dafabe7e81c1d367ae065a1/68747470733a2f2f692e696d6775722e636f6d2f45785a797367792e706e67)
 Curious about client-side state storage? I’ve grabbed 3 of the most popular and compared them in a statically typed environment.
 
 ## Project Goal
